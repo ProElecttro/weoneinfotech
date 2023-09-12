@@ -1,0 +1,40 @@
+#PaymentContainer{
+  margin-inline: auto;
+  padding: 12px;
+  width: 50%;
+  height: 40vh;
+  border: 1.2px solid #000;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+#paymentTitle{
+  text-align: center;
+}
+
+#amountField{
+  padding: 7px;
+  border-radius: 5px;
+  font-size: 15px;
+  width: 40vh;
+}
+
+#checkout-btn{
+  background-color: turquoise;
+  font-size: 16px;
+}
+
+#checkout-btn:hover{
+  scale: 1.03;
+}
+
+#container.drishy #modal{
+  height: 70vh;
+}
+
+body{
+  height: 100vh;
+}

@@ -1,0 +1,41 @@
+.sidebar,
+.sidebar-active{
+    height: 100vh;
+    background-color: #39d4c9;
+    position: relative;
+    top: 0;
+    z-index: 99;
+}
+
+.sidebar_Header{
+    display: flex;
+    height: 60px;
+    background-color: #4de8de;
+}
+
+#sidebar-btn{
+    background-color: transparent;
+    font-size: 25px;
+    border-radius: 0;
+    padding-inline: 18px;
+}
+
+#sidebar-btn:hover,
+#sidebar-btn:focus{
+    background-color: #3ad1c7;
+    outline: none;
+    border: none;
+}
+
+#sidebar-icon{
+    background-color: transparent;
+    font-size: 25px;
+}
+
+.LogoContainer{
+    width: 260px;
+}
+
+.LogoContainer-inactive{
+    display: none;
+}

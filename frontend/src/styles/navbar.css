@@ -1,0 +1,206 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.home{
+    /* background-image: url('https://img.freepik.com/premium-photo/abstract-frame-background-drops-blue-watercolor-white-paper_154092-15300.jpg?w=996');
+    background-size: cover; */
+    background-color: rgb(196, 225, 218);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+}
+
+.navbar {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: rgb(213, 239, 255);
+    background-color: #34dbd0;
+    z-index: 99;
+}
+
+.icons {
+    background-color: transparent;
+}
+
+.LogoContainer {
+    height: 100%;
+    background-color: transparent;
+    font-weight: 500;
+    display: flex;
+    margin-left: 5.5%;
+    margin-right: auto;
+}
+
+.LogoContainer a {
+    height: 0;
+}
+
+.LogoContainer p {
+    background-color: transparent;
+    font-size: 1.8vw;
+    margin-top: 15px;
+}
+
+#Logo {
+    background-color: transparent;
+    height: 50px;
+    margin-right: 10px;
+    margin-top: 4px;
+}
+
+.search-bar {
+    background-color: rgb(213, 231, 243);
+    background-color: #88e8e2;
+    border-radius: 50px;
+    width: 40vw;
+    border: 1px solid #000;
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
+
+.search {
+    background-color: transparent;
+    outline: none;
+    border: none;
+    border-radius: 50px;
+    font-size: 16px;
+    width: 92%;
+    height: 40px;
+    margin-left: 12px;
+}
+
+.button {
+    width: 38px;
+    height: 38px;
+    background-color: transparent;
+    background-color: #88e8e2 !important;
+    border-radius: 50%;
+    padding: 0;
+    font-size: 22px;
+}
+
+.button:hover {
+    transform: scale(1.08);
+    /* Correct the scale property syntax */
+}
+
+.options {
+    background-color: transparent;
+    display: flex;
+    margin-right: 12px;
+    margin-left: 10%;
+}
+
+#login-btn,
+#liked-product-btn,
+#cart-btn {
+    background-color: rgb(181, 219, 242);
+    border: 1px solid #000;
+    margin: 5px;
+}
+
+#liked-product-btn {
+    font-size: 1.5rem;
+}
+
+/* ///////////sidebar//////////////// */
+.sidebar,
+.sidebar-active{
+    height: 100vh;
+    background-color: #39d4c9;
+    position: absolute;
+    top: 0;
+    z-index: 99;
+}
+
+.sidebar_Header{
+    display: flex;
+    height: 60px;
+    background-color: #4de8de;
+}
+
+#sidebar-btn{
+    background-color: transparent;
+    font-size: 25px;
+    border-radius: 0;
+    padding-inline: 18px;
+}
+
+#sidebar-btn:hover,
+#sidebar-btn:focus{
+    outline: none;
+    border: none;
+}
+
+#sidebar-icon{
+    background-color: transparent;
+    font-size: 25px;
+}
+
+.LogoContainer{
+    width: 260px;
+}
+
+.LogoContainer-inactive{
+    display: none;
+}
+
+
+/* //////////////////////////////// */
+.input-box{
+    background-color: transparent;
+    margin-inline: auto;
+    position: relative;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.input-box input{
+    border: 1px solid #000;
+    border-radius: 12px;
+    padding: 12px;
+    font-size: 20px;
+    width: 30vw;
+}
+
+.input-box span{
+    font-size: 25px;
+    font-weight: 300;
+    position: absolute;
+    left: 25px;
+    top: 14px;
+    color: rgb(135, 160, 145);
+    pointer-events: none;
+    transition: ease 0.3s;
+}
+
+.input-box input:valid ~span,
+.input-box input:focus ~span{
+    font-size: 20px;
+    transform: translateY(-70%) translateX(10px);
+    padding:0 2px 0 2px;
+    border-inline: 1px solid #000;
+    border-color: #34dbd0;
+    border-radius: 5px;
+    letter-spacing: 0.1em;
+    color: #34dbd0;
+    font-weight: 400;
+}
+
+.input-box input:focus,
+.input-box input:valid{
+    outline: none;
+    border-color: #34dbd0;
+    border-width: 1.5px;
+}
