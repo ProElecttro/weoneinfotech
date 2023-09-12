@@ -1,0 +1,98 @@
+* {
+    margin: 0%;
+    padding: 0%;
+}
+
+#root {
+    width: 100%;
+}
+
+.containerSoon {
+    margin-left: 5%;
+    /* height: 100vh; */
+    padding-inline: 3%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.container a img {
+    height: 155px;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 50%;
+}
+
+p {
+    font-size: 20px;
+    margin-bottom: 25%;
+}
+
+#comapanyTitle {
+    color: rgb(0, 198, 198);
+    font-weight: 600;
+    font-size: 200px;
+    margin-bottom: 30px;
+}
+
+.notify {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.inputBox {
+    padding: 20px;
+    width: 1200px;
+    height: 100px;
+    font-size: 80px;
+    background-color: transparent;
+    border: 6px solid rgb(127, 219, 219);
+}
+
+.btn {
+    background-color: rgb(0, 198, 198);
+    width: 400px;
+    font-size: 56px;
+}
+
+.btn:hover {
+    background-color: rgb(55, 195, 255);
+    scale: 1.05;
+}
+
+/* 
+  
+  .navbar{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-inline: 30px;
+    background-color: green;
+    height: 240px;
+  }
+  
+  .searchbar{
+    border-radius: 2%;
+    height: 60%;
+    width: 50%;
+  }
+  
+  .searchbar{
+    padding: 2px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  
+  .searchIcon img{
+    width: 100px;
+    height: 100px;
+  }
+  */
