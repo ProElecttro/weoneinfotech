@@ -1,0 +1,37 @@
+.productPage{
+    display: flex;
+    flex-direction: row;
+    /* background-color: red; */
+}
+
+.product{
+    display: flex;
+    flex-direction: row;
+    flex: 3;
+    margin-right: 12px;
+}
+
+.Image {
+    width: 100%;
+    height: auto;
+    background-size: cover;
+}
+
+.productPhoto{
+    padding: 12px;
+    width: 300px;
+    height: 80%;
+    /* background-color: green; */
+    /* margin: 20px 0 0 20px; */
+    backdrop-filter: blur(50px);
+    border-radius: 8px;
+    flex: 0 0 auto;
+}
+
+.productDetails{
+    padding: 12px;
+    height: 80%;
+    backdrop-filter: blur(10px);
+    border-radius: 8px;
+    flex: 1;
+}

@@ -1,13 +1,24 @@
 * {
-  margin: 0%;
-  padding: 0%;
-  color: black;
+  color: #000;
+  background-color: #fff;
+  margin: 0;
+  padding: 0;
 }
 
 #root {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  overflow-y: scroll;
   width: 100%;
+  background-color: #fff;
+  background-image: url('./assets/bg.jpg');
+  background-size: cover;
 }
 
-.container {
-  background-color: blue;
+.body{
+  position: relative;
+  width: 95%;
+  margin: 55px 0  0 5%;
+  height: 100vh;
 }

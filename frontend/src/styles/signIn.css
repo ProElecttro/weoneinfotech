@@ -1,103 +1,60 @@
-* {
-    margin: 0;
-    padding: 0;
-    background-color: #fff;
-    color: #000;
-}
-
 .register {
-    margin-top: 30px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-
-.LogoContain {
-    width: 440px;
-    height: 100px;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: start;
-    background-color: transparent;
-    margin-top: 18px;
-}
-
-#img {
-    background-color: transparent;
-    height: 80px;
-}
-
-#companyTitle{
-    background-color: transparent;
-    font-size: 40px;
-    font-weight: 600;
-    margin-top: 6px;
-}
-
-
-.login {
-    width: 540px;
-    border: 1px solid #000;
-    border-radius: 20px;
+    width: 45%;
+    /* height: 450px; */
+    min-width: 350px;
     padding: 12px;
-    background-color: rgb(237, 246, 255);
-    background-color: #b6ebe7;
-    position: relative;
+    margin-inline: auto;
+    border-radius: 20px;
+    background-color: transparent;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 0 15px rgba(0, 123, 255, 0.3);
 }
 
-#signIn {
-    background-color: transparent;
+.title {
     font-size: 33px;
-    font-weight: 400;
     border-bottom: 1px solid #000;
-    margin-bottom: 16px;
+    margin-bottom: 12px;
 }
 
 label {
-    background-color: transparent;
     font-weight: bold;
+    font-size: 15px;
 }
 
-.inputBox {
+.input-Box {
     width: 96%;
-    height: 14px;
     padding: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid #c4c4c4;
     border-radius: 8px;
     font-size: 16px;
-    background-color: rgb(231, 241, 253);
-    background-color: #c7edea;
+    opacity: 0.7;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+    margin-bottom: 10px;
 }
 
-.inputBox:focus {
+.input-Box:focus {
+    opacity: 1;
     outline: none;
     border-color: #007bff;
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
 }
 
-#signin-btn{
-    border: 1px solid #000;
-    border-radius: 20px;
-    background-color: rgb(213, 239, 255);
-    background-color: #c7edea;
-    position: absolute;
-    right: 12px;
-    top: 240px;
+.signin-btn{
+    width: 100px;
+    margin: 0 0 20px auto;
+    background-color: rgb(225, 244, 255);
+    box-shadow: 0px 0px 1px #000;
 }
 
-#signin-btn:hover{
+.signin-btn:hover{
     scale: 1.05;
-    border-color: #08A89C;
-    box-shadow: 0 0 5px rgb(14, 134, 74);
-    background-color: rgb(168, 233, 247);
-    background-color: #a3e8e2;
+    border-color: aqua;
     outline: none;
 }
 
 .signup{
     background-color: transparent;
-    margin-top: 80px;
+    margin-top: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -111,16 +68,17 @@ label {
 }
 
 .signup-btn{
-    width: 70%;
-    background-color: rgb(213, 239, 255);
-    background-color: #c7edea;
+    width: 60%;
+    background-color: rgb(225, 244, 255);
     border: 1px solid #000;
+    margin-bottom: 10px;
+    margin-top: auto;
 }
 
 .signup-btn:hover{
     scale: 1.05;
-    border-color: #08A89C;
-    box-shadow: 0 0 5px rgb(14, 134, 74);
-    background-color: #a3e8e2;
     outline: none;
+    background-color: rgb(210, 230, 241);
+    box-shadow: 0px 0px 1px #000;
+    border-color: aqua;
 }

@@ -1,31 +1,97 @@
-import "react";
-import "../styles/signIn.css";
-import Logo from "../assets/WeOneInfotech_Logo.png";
+import { useState, ChangeEvent } from "react";
 
-function signIn(){
-    function navbar(){
-        window.open('/navbar')
+import "../styles/signIn.css";
+import { NavLink } from "react-router-dom";
+
+function SignIn(props: any) {
+
+  const initialFormData = {
+    email: "",
+    password: "",
+  };
+
+  const [formData, setFormData] = useState(initialFormData);
+
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+
+  const handleSubmit = async () => {
+    // e: { preventDefault: () => void }
+    // e.preventDefault();
+    
+    if(formData.email === undefined || formData.password === undefined){
+      alert("Please enter a valid email and password");
+      return;
     }
-    return(
-        <div className="register">
-            <div className="LogoContain">
-                <img id="img" src={Logo} alt="Logo" />
-                <p id="companyTitle">We One Infotech</p>
-            </div>
-            <div className="login">
-                <p id="signIn">Sign in</p>
-                <label htmlFor="email">Email address</label><br />
-                <input type="email" className="inputBox" placeholder="Enter your email address" /><br /><br />
-                <label htmlFor="password">Password</label><br />
-                <input type="password" className="inputBox" placeholder="Enter your password" />
-                <button id="signin-btn" onClick={navbar}>Continue</button>
-                <div className="signup">
-                    <p className="newID">New to weoneinfotech?</p>
-                    <button className="signup-btn">Create an account</button>
-                </div>
-            </div>
-        </div>
-    );
+
+    try {
+      const response = await fetch("http://localhost:3002/login", {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        console.log('logged in', data)
+        // alert(data.message);
+        props.showAlert({message: data.message, type: "success"})
+      } else {
+        const errorData = await response.json();
+        if (errorData.error) {
+          alert(errorData.message);
+        } else {
+          alert("An unexpected error occurred. Please try again later.");
+        }
+      }
+    } catch (error) {
+      console.error("Network error:", error);
+      alert("A network error occurred. Please check your internet connection.");
+    }
+  };
+
+  return (
+    <div className="register">
+      <p className="title">Sign in</p>
+      <label htmlFor="email">Email address</label>
+      <br />
+      <input
+        type="email"
+        name="email"
+        onChange={handleInputChange}
+        className="input-Box"
+        placeholder="Enter your email address"
+      />
+
+      <label htmlFor="password">Password</label>
+      <br />
+      <input
+        type="password"
+        name="password"
+        onChange={handleInputChange}
+        className="input-Box"
+        placeholder="Enter your password"
+      />
+
+      <div className="signup">
+        <button className="signin-btn" onClick={handleSubmit}>
+          Login
+        </button>
+        <p className="newID">New to weoneinfotech?</p>
+        <button className="signup-btn">
+          <NavLink to="/signup"> Create an account</NavLink>
+        </button>
+      </div>
+    </div>
+  );
 }
 
-export default signIn;
+export default SignIn;

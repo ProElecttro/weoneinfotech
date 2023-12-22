@@ -1,0 +1,17 @@
+.LogoContainer {
+    font-weight: 500;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    margin-right: auto;
+}
+
+.LogoContainer p {
+    background-color: transparent;
+    font-size: 1.8vw;
+}
+
+#Logo {
+    height: 50px;
+    margin-right: 10px;
+}

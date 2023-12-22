@@ -1,7 +1,9 @@
 import { useState } from "react";
 import "../styles/payment.css";
+// import RazorAPI from "razorpay-typescript/dist/api";
+import "razorpay-typescript"
 
-function Payment() {
+export default function Payment() {
   const [amount, setamount] = useState("");
 
   const handleSubmit = (e: any) => {
@@ -10,8 +12,8 @@ function Payment() {
       alert("please enter amount");
     } else {
       var options = {
-        key: "rzp_test_LrdMrDqsLAoFTX",
-        key_secret: "kwE9u16UvqImUD4rU6kkYoq8",
+        key: process.env.Razorpay_key,
+        key_secret: process.env.Razorpay_key_secret,
         amount: (Number(amount) * 100).toString(),
         currency: "INR",
         name: "WeOneInfotech",
@@ -29,12 +31,12 @@ function Payment() {
           address: "Razorpay Corporate office",
         },
         theme: {
-          color: "#34dbd0",
+          color: "#34dbd0"
         },
         modal: {
           height: "50%",
           marginTop: "20px",
-        },
+        }
       };
       var pay = new window.Razorpay(options);
       pay.open();
@@ -58,5 +60,3 @@ function Payment() {
     </div>
   );
 }
-
-export default Payment;

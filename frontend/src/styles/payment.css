@@ -1,4 +1,5 @@
 #PaymentContainer{
+  margin-top: 120px;
   margin-inline: auto;
   padding: 12px;
   width: 50%;
@@ -9,6 +10,7 @@
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
+  filter: blur();
 }
 
 #paymentTitle{
@@ -17,24 +19,17 @@
 
 #amountField{
   padding: 7px;
-  border-radius: 5px;
-  font-size: 15px;
+  border-radius: 8px;
+  font-size: 20px;
   width: 40vh;
 }
 
 #checkout-btn{
   background-color: turquoise;
-  font-size: 16px;
+  font-size: 18px;
+  letter-spacing: .1em;
 }
 
 #checkout-btn:hover{
   scale: 1.03;
-}
-
-#container.drishy #modal{
-  height: 70vh;
-}
-
-body{
-  height: 100vh;
 }
