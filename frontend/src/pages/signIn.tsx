@@ -47,14 +47,14 @@ function SignIn(props: any) {
       } else {
         const errorData = await response.json();
         if (errorData.error) {
-          alert(errorData.message);
+          props.showAlert({message: errorData.message, type: "error"})
         } else {
-          alert("An unexpected error occurred. Please try again later.");
+          props.showAlert({message: "An unexpected error occurred. Please try again later.", type: "success"})
         }
       }
     } catch (error) {
       console.error("Network error:", error);
-      alert("A network error occurred. Please check your internet connection.");
+      props.showAlert({message: "A network error occurred. Please check your internet connection.", type: "error"})
     }
   };
 
@@ -87,7 +87,7 @@ function SignIn(props: any) {
         </button>
         <p className="newID">New to weoneinfotech?</p>
         <button className="signup-btn">
-          <NavLink to="/signup"> Create an account</NavLink>
+          <NavLink to="/signup"> <strong>Create an account</strong></NavLink>
         </button>
       </div>
     </div>

@@ -112,7 +112,7 @@ function SignUp(props: any) {
         </button>
         <p className="newID">Already Registered?</p>
         <button className="signup-btn" >
-        <NavLink to="/signin"> Login </NavLink>
+        <NavLink to="/signin"> <strong>Login</strong> </NavLink>
         </button>
       </div>
     </div>
