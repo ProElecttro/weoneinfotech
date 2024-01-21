@@ -10,9 +10,6 @@ class User {
 
     @Column()
     password: string;
-
-    @Column()
-    logged_in: boolean;
 }
 
 export default User;

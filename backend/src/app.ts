@@ -11,9 +11,15 @@ dotenv.config()
 import bcrypt from "bcrypt";
 import * as jwt from "jsonwebtoken";
 import cors from "cors";
+import cookieParser from 'cookie-parser';
+import { validate } from "class-validator";
+import bodyParser from 'body-parser';
 
 const app = express();
 app.use(express.json())
+app.use(cookieParser());
+app.use(bodyParser.json({ limit: '10mb' }));
+app.use(bodyParser.urlencoded({ extended: true, limit: '10mb' }));
 
 app.use(
     cors({
@@ -22,24 +28,17 @@ app.use(
 );
 
 app.post('/addproduct', async (req, res) => {
-    const productRepo = AppDataSource.getRepository(Product);
-
-    const newProduct = new Product();
-    newProduct.name = req.body.name
-    newProduct.category = req.body.category
-    newProduct.price = req.body.price
-    newProduct.sales_price = req.body.sales_price
-    newProduct.stock = req.body.stock
-    newProduct.status = "Out of Stock"
-    newProduct.description = req.body.description
-    newProduct.status = (parseInt(newProduct.stock) > 0) ? "Available" : "Out of Stock"
-
     try {
-        const saved_product = await productRepo.save(newProduct);
-        res.json(saved_product);
+        console.log(req.body)
+        const productRepo = AppDataSource.getRepository(Product);
+
+        let newProduct = { ...req.body };
+        newProduct.status = (parseInt(newProduct.stock) > 0) ? "Available" : "Out of Stock";
+        const savedProduct = await productRepo.save(newProduct);
+        return res.status(201).json(savedProduct);
     } catch (error) {
-        console.error("Error saving product:", error);
-        res.status(500).json({ error: "Failed to save product" });
+        console.error(error);
+        return res.status(500).json({ error: "Failed to save product" });
     }
 });
 
@@ -49,12 +48,17 @@ app.get('/fetchProductDetails', async (req, res) => {
 
         const products = await productRepo.find();
 
-        res.json(products);
+        if (products.length === 0) {
+            return res.status(204).json({ message: 'No products found' });
+        }
+
+        res.status(200).json(products);
     } catch (error) {
         console.error('Error: ', error);
         res.status(500).json({ error: 'Internal Server Error' });
     }
 });
+
 
 app.get('/productbycategory/:category', async (req, res) => {
     const productRepo = AppDataSource.getRepository(Product);
@@ -139,6 +143,10 @@ app.post('/login', async (req, res) => {
         const accessToken = generateAccessToken(user);
         const refreshToken = generateRefreshToken(user);
 
+        // res.cookie('accesstoken', accessToken, { httpOnly: true });
+        res.setHeader('signin', `accesstoken=${accessToken}`)
+        const accessT = req.cookies.accesstoken;
+        console.log(req.cookies);
         return res.status(200).json({
             accessToken,
             refreshToken,
@@ -170,6 +178,8 @@ app.post('/register', async (req, res) => {
         const accessToken = generateAccessToken(user);
         const refreshToken = generateRefreshToken(user);
 
+        res.cookie('accesstoken', accessToken, { httpOnly: true });
+        
         return res.status(200).json({
             accessToken,
             refreshToken,
@@ -186,6 +196,8 @@ app.get('/getusers', async (req, res) => {
     const users = await userRepo.find()
     res.json(users)
 })
+
+
 
 const port = 3002;
 

@@ -1,30 +1,45 @@
-import {Entity , PrimaryGeneratedColumn , Column } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn } from "typeorm";
 
-@Entity({name: "Products"})
-class Product{
-    @PrimaryGeneratedColumn("uuid")
-    product_id: string
+@Entity({ name: "Products" })
+class Product {
+  @PrimaryGeneratedColumn("uuid")
+  product_id: string;
 
-    @Column()
-    name: string
+  @Column()
+  productName: string;
 
-    @Column()
-    category: string
+  @Column()
+  category: string;
 
-    @Column()
-    price: string
+  @Column()
+  brandName: string;
 
-    @Column()
-    sales_price: string
+  @Column({ type: "int", default: 0})
+  stock: number;
 
-    @Column()
-    stock: string
+  @Column()
+  status: string;
 
-    @Column()
-    status: string
+  @Column({ type: "decimal", precision: 10, scale: 2 }) // Assuming these are monetary values
+  MRP: number;
 
-    @Column()
-    description: string
+  @Column({ type: "decimal", precision: 10, scale: 2 })
+  salesPrice: number;
+
+  @Column()
+  description: string;
+
+  @Column()
+  images: string;
+
+  @Column()
+  specifications: string;
+
+  // @CreateDateColumn()
+  // created_at: Date;
+
+  // @UpdateDateColumn()
+  // updated_at: Date;
 }
 
-export default Product
+export default Product;
