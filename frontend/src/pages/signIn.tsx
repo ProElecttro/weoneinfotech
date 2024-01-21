@@ -42,8 +42,9 @@ function SignIn(props: any) {
       if (response.ok) {
         const data = await response.json();
         console.log('logged in', data)
-        // alert(data.message);
-        props.showAlert({message: data.message, type: "success"})
+        alert(data.message);
+        window.location.href = '/admin';
+        // props.showAlert({message: data.message, type: "success"})
       } else {
         const errorData = await response.json();
         if (errorData.error) {

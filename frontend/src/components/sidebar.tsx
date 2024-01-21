@@ -22,21 +22,9 @@ function Sidebar() {
         {!isToggled && <div id={styles.sidebarLogo}>
           <LogoContainer title="We One Infotech" />
         </div>}
-        <button onClick={toggleSidebar} id={styles.sidebarBtn}>
-          {isToggled ? (
-            <RxHamburgerMenu id={styles.sidebarIcon} />
-          ) : (
-            <RxCross1 id={styles.sidebarIcon} />
-          )}
-        </button>
       </div>
       {isToggled ? 
-        <div className={styles.sideIcons}>
-          <CiHome className={styles.Icon} /> <hr style={{ borderColor: "rgb(181, 219, 242)", width: "85%" }} />
-          <CiShare2 className={styles.Icon} /> <hr style={{ borderColor: "rgb(181, 219, 242)", width: "85%" }} />
-          <CiBookmark className={styles.Icon} /> <hr style={{ borderColor: "rgb(181, 219, 242)", width: "85%" }} />
-          <CiSettings className={styles.Icon} /> <hr style={{ borderColor: "rgb(181, 219, 242)", width: "85%" }} />
-        </div> : 
+        null : 
         <div className={styles.sideIcons}>
           <div className={styles.options}>
             <CiHome className={styles.Icons} />

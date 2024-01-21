@@ -8,12 +8,16 @@ import { MdShoppingCartCheckout } from "react-icons/md";
 import "../styles/navbar.css";
 import { NavLink } from "react-router-dom";
 import LogoContainer from "./logoContainer";
+import { RxHamburgerMenu } from "react-icons/rx";
 
 function Navbar() {
 
   return (
       <div className="navbar">
         <div id="navbar-logo">
+          <div className="hamburger">
+            <RxHamburgerMenu />
+          </div>
           <LogoContainer title="We One Infotech" />
         </div>
         <div className="search-bar">

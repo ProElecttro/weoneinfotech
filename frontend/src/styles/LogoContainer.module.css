@@ -3,15 +3,22 @@
     width: fit-content;
     display: flex;
     align-items: center;
-    margin-right: auto;
+    justify-content: center;
+    gap: 2px;
 }
 
 .LogoContainer p {
     background-color: transparent;
-    font-size: 1.8vw;
+    font-size: 1.2rem;
 }
 
 #Logo {
     height: 50px;
     margin-right: 10px;
+}
+
+@media screen and (max-width: 680px) {
+    .LogoContainer p{
+        display: none;
+    }
 }

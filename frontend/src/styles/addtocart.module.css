@@ -1,25 +1,22 @@
 .addtocart{
-    width: 22%;
-    height: 85%;
-    background-color: rgb(187, 229, 255);
-    border-radius: 12px 0 0 12px;
-    padding: 12px;
-    margin-top: 1%;
+    background-color: #EEE;
+    border-radius: 0.6rem;
+    padding: 0.4rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    height: fit-content;
 }
 
 .table{
-    background-color: rgb(170, 217, 247);
-    margin-block: 2px;
+    border: solid 1px #DDD;
+    border-radius: 0.4rem;
+    margin-block: 0.6rem;
     width: 100%;
-    border-radius: 8px;
     padding: 2px;
 }
 
 .price{
-    width: 100%;
     padding: 0;
     display: flex;
     align-items: center;
@@ -27,18 +24,17 @@
 }
 
 .location{
-    width: 100%;
-    padding: 2px;
+    padding: 0.2rem;
     display: flex;
-    flex-direction: row;
-    align-items: start;
+    border: solid 1px #DDD;
+    border-radius: 0.4rem;
+    margin-block: 0.6rem;
 }
 
 .btn{
     width: 100%;
-    margin-top: 4px;
-    background-color: transparent;
-    border: solid 1px #000;
+    margin-top: 0.3rem;
+    border: solid 1px #777;
     border-radius: 12px;
 }
 
@@ -54,21 +50,22 @@
 
 .Quantity{
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
-    align-items: center;
-    font-size: 24px;
+    font-size: 1.5rem;
 }
 
 .changeQunatityBtn{
-    width: 25px;
-    margin: 2px;
-    font-size: 24px;
+    width: 2rem;
+    margin: 0.2rem;
+    font-size: 1.6rem;
     padding: 0;
-    border-radius: 0;
-    background-color: rgb(170, 217, 247);
-    border: solid 1px #000;
-    border-radius: 2px;
+    background-color: #DDD;
+    outline: none;
+    border: none;
+}
+
+
+.changeQunatityBtn:focus {
     outline: none;
     border: none;
 }

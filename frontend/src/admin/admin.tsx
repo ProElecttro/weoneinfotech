@@ -16,9 +16,8 @@ interface Product {
 }
 
 export default function Admin() {
-  const [data, setData] = useState<Product[]>([]);
+  const [productsData, setProductsData] = useState<Product[]>([]);
   const [duplicateData, setduplicateData] = useState<Product[]>([]);
-  const [selectedProduct, setSelectedProduct] = useState<Product[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
@@ -27,8 +26,8 @@ export default function Admin() {
         const response = await Axios.get<Product[]>(
           "http://localhost:3002/fetchProductDetails"
         );
-        setData(response.data);
-        setduplicateData(data);
+        setProductsData(response.data);
+        setduplicateData(response.data);
         setLoading(false);
       } catch (error) {
         console.error("Error fetching products:", error);
@@ -36,16 +35,6 @@ export default function Admin() {
     }
     fetchProducts();
   }, []);
-
-  function selectProduct(product: Product) {
-    setSelectedProduct((prevSelected) => {
-      if (prevSelected.includes(product)) {
-        return prevSelected.filter((p) => p !== product);
-      } else {
-        return [...prevSelected, product];
-      }
-    });
-  }
 
   return (
     <>
@@ -61,7 +50,7 @@ export default function Admin() {
               Delete Selected
             </button>
             <button id="add-prod" className="control-btn">
-              <NavLink to={"/admin/addProduct"}>Add Product</NavLink>
+              <NavLink to={"/addProduct"}>Add Product</NavLink>
             </button>
           </div>
           <hr />
@@ -131,8 +120,6 @@ export default function Admin() {
                         <input
                           type="checkbox"
                           className="check-box"
-                          checked={selectedProduct.includes(product)}
-                          onChange={() => selectProduct(product)}
                         />
                       </td>
                       <td>{product.name}</td>

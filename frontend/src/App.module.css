@@ -1,0 +1,15 @@
+* {
+  color: #000;
+  margin: 0;
+  padding: 0;
+}
+
+*::-webkit-scrollbar{
+  display: none;
+}
+
+.app{
+  position: absolute;
+  top: 55px;
+  width: 100%;
+}

@@ -58,10 +58,10 @@ function SignUp(props: any) {
   
       if (response.ok) {
         const data = await response.json();
-
         alert(data.message);
-        props.showAlert({message: data.message, type: "success"})
-        window.location.href = "/signin";
+        // window.location.reload();
+        window.location.href = '/signin';
+        // props.showAlert({message: data.message, type: "success"})
       } else {
         const errorData = await response.json();
         alert(errorData.message);

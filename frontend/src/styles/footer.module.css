@@ -1,0 +1,159 @@
+.footerContainer{
+    width: 100%;
+    background-color: #f6f6f6;
+}
+
+.footer{
+    display: flex;
+    flex-direction: column;
+}
+
+.backtotop{
+    background-color: #37475a;
+    color: #fff;
+    text-align: center;
+    padding-block: 0.6rem;
+    font-size: 1.3rem;
+    font-weight: 400;
+}
+
+.backtotop:hover{
+    background-color: #37475a;
+}
+
+.backtotopBtn {
+    padding: 0;
+    border-radius: 0;
+    border-bottom: solid 1px #333;
+}
+
+.backtotopBtn:hover {
+    border: none;
+}
+
+.backtotopBtn:focus {
+    outline: none;
+}
+
+
+.footerTop{
+    display: flex;
+    padding: 8px;
+    justify-content: space-between;
+    align-items: flex-start;
+    background-color: #3e5067;
+}
+
+.company{
+    display: flex;
+    flex-direction: column;
+    padding: 12px;
+    border-right: solid 1px #b5b5b5;
+    width: 380px;
+}
+
+.companyName{
+    font-weight: 500;
+    font-size: 22px;
+    color: #DDD;
+}
+
+
+.logo{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 4px;
+}
+
+.logo img{
+    height: 45px;
+}
+
+.companyAddress{
+    font-size: 12px;
+    margin-top: 12px;
+}
+
+.companyAddress p{
+    font-size: 13px;
+    color: #DDD;
+}
+
+.addressHeading{
+    font-size: 1rem;
+    color: #EEE;
+}
+
+.footerGrid{
+    width: 100%;
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.footerGridColumn{
+    margin-left: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.heading{
+    color: #DDD;
+    font-size: 1rem;
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+    font-size: 0.8rem;
+    color: #BBB;
+}
+
+#socialMedia{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.socialMediaIcon{
+    width: 1.5rem;
+}
+
+.copyRight{
+    text-align: center;
+    border-top: solid 1px #444444;
+    padding-block: 12px;
+    background-color: #131a22;
+    color: #fff;
+}
+
+
+@media screen and (max-width: 872px) and (min-width: 768px) {
+    .footerTop {
+        display: flex;
+        flex-direction: column;
+    }
+    .company {
+        border: none;
+        align-items: center;
+        margin-inline: auto;
+    }
+}
+
+@media screen and (max-width: 680px) {
+    li {
+        display: none;
+    }
+    .footerGrid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .footerTop {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}

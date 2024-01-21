@@ -2,36 +2,40 @@ import { useState, useEffect } from "react";
 import Axios from "axios";
 
 import "../styles/products.css";
-import { NavLink } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 
-import { CiStar } from "react-icons/ci";
-import { FaStarHalfAlt } from "react-icons/fa";
-
-import { FaStar } from "react-icons/fa";
+import Rating from "../components/rating";
+import Footer from "../components/footer";
 
 interface Product {
   noOfRatings: number;
   rating: number;
   product_id: string;
-  name: string;
+  
+  productName: string;
   category: string;
-  price: number;
-  sales_price: number;
+  brandName: string;
   stock: string;
   status: string;
+  MRP: string;
+  salesPrice: number;
   description: string;
+  images: string;
+  specifications: string;
 }
 
 export default function Products() {
-  // const [rating, setRating] = useState(4.6);
+  const navigate = useNavigate();
   const [data, setData] = useState<Product[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
+    const token = localStorage.getItem('accesstoken');
+    console.log("token: " + token);
     async function fetchProducts() {
       try {
         const response = await Axios.get<Product[]>(
-          "http://localhost:3002/fetchProductDetails"
+          "http://localhost:3002/fetchProductDetails",
         );
         setData(response.data);
         setLoading(false);
@@ -44,56 +48,49 @@ export default function Products() {
   }, []);
 
   return (
-    <div className="products-page">
-      {loading ? (
-        <p>Loading...</p>
-      ) : data.length === 0 ? (
-        <p>No products found</p>
-      ) : (
-        data.map((product) => (
-          <div className="product" key={product.product_id}>
-            <div>
-              <NavLink to='/product'>
-                <div className="product_img">
-                  {/* <img alt={product.name} /> */}
-                </div>
-              </NavLink>
+    <>
+      <div className="products-page">
+        {loading ? (
+          <p>Loading...</p>
+        ) : data.length === 0 ? (
+          <p>No products found</p>
+        ) : (
+          data.map((product) => (
+            <div className="product" key={product.product_id}>
+              <div className="product_img" onClick={() => navigate("/product", { state: product })}>
+                <img src={JSON.parse(product.images)[0]} alt={product.productName} />
+              </div>
 
-              <div className="product-info">
-                <NavLink to='/product'> <h3 className="productName">{product.name}</h3> </NavLink>
-                <div className="rating">
-                  {product.rating || 3.5 < 0.5 ? <CiStar className="star"/> : product.rating || 3.5 < 1 ? <FaStarHalfAlt className="star"/> : <FaStar className="star"/>}
-                  {product.rating || 3.5 < 1.5 ? <CiStar className="star"/> : product.rating || 3.5 < 2 ? <FaStarHalfAlt className="star"/> : <FaStar className="star"/>}
-                  {product.rating || 3.5 < 2.5 ? <CiStar className="star"/> : product.rating || 3.5 < 3 ? <FaStarHalfAlt className="star"/> : <FaStar className="star"/>}
-                  {product.rating || 3.5 < 3.5 ? <CiStar className="star"/> : product.rating || 3.5 < 4 ? <FaStarHalfAlt className="star"/> : <FaStar className="star"/>}
-                  {product.rating || 3.5 < 4.5 ? <CiStar className="star"/> : product.rating || 3.5 < 5 ? <FaStarHalfAlt className="star"/> : <FaStar className="star"/>}
-                  <p style={{marginLeft: "12px"}}>{product.noOfRatings | 1} rating{product.noOfRatings || 1 > 1 && <span>s</span>}</p>
+              <div className="productDetails">
+                <div className="product-info">
+                  <div className="productName" onClick={() => navigate("/product", { state: product })}>
+                    <h3>{product.productName}</h3>
+                  </div>
+                  <Rating Rating={3} noOfRatings={4} />
+                  <p>{product.description}</p>
                 </div>
-                <p>{product.description}</p>
+
+                <div className="price-table" onClick={() => navigate("/product", { state: product })}>
+                  <div className="product-price">
+                  <span style={{ fontSize: "24px", color: "red" }}>
+                    {(((product.salesPrice - parseFloat(product.MRP)) / parseFloat(product.MRP) * 100).toFixed(2))}%
+                  </span>
+
+                  </div>
+                    <div className="product-price">
+                      <span style={{fontSize: "20px", marginRight: "12px"}}><strong>Price</strong></span>
+                      <span><sup>INR</sup><strong style={{fontSize: "20px"}}>{product.salesPrice}/-</strong></span>
+                    </div>
+                    <div className="product-price">
+                      <span style={{marginRight: "12px"}}>List Price</span>
+                      <span><i><s>INR {product.MRP}/-</s></i></span>
+                    </div>
+                  </div>
               </div>
             </div>
-
-            <NavLink to='/product'>
-              <div className="price-table">
-              <div className="product-price">
-              <span style={{ fontSize: "24px", color: "red" }}>
-                {((product.sales_price - product.price) / product.price * 100).toFixed(2)}%
-              </span>
-
-              </div>
-                <div className="product-price">
-                  <span style={{fontSize: "20px", marginRight: "12px"}}><strong>Price</strong></span>
-                  <span><sup>INR</sup><strong style={{fontSize: "20px"}}>{product.sales_price}/-</strong></span>
-                </div>
-                <div className="product-price">
-                  <span style={{marginRight: "12px"}}>List Price</span>
-                  <span><i><s>INR {product.price}/-</s></i></span>
-                </div>
-              </div>
-            </NavLink>
-          </div>
-        ))
-      )}
-    </div>
+          ))
+        )}
+      </div>
+    </>
   );
 }
