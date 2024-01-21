@@ -8,12 +8,14 @@
     "tsc": "tsc",
     "build": "vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "both": "concurrently \"cd ../backend && yarn run start:dev\" \"yarn run dev\" "
   },
   "dependencies": {
     "@types/bcrypt": "^5.0.0",
     "axios": "^1.6.5",
     "bcrypt": "^5.1.1",
+    "concurrently": "^8.2.2",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "jquery": "^3.7.1",
